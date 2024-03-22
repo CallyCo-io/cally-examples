@@ -37,6 +37,17 @@ pip install -e . --upgrade
 Hello world
 ```
 
+### Using your own entrypoint
+```bash
+(venv) ➜  minimal git:(main) ✗ minimal-idp config print-service --environment dev --service pets
+ENVIRONMENT: dev
+NAME: pets
+PROVIDERS:
+  random:
+    alias: foo
+STACK_TYPE: RandomPets
+```
+
 ### Pets Service Config
 ```bash
 (venv) ➜  minimal git:(main) ✗ cally config print-service --environment dev --service pets

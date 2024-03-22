@@ -1,0 +1,25 @@
+{
+    "random_pet": {
+        "another-random-pet": {
+            "//": {
+                "metadata": {
+                    "path": "test/another-random-pet",
+                    "uniqueId": "another-random-pet"
+                }
+            },
+            "depends_on": [
+                "random_pet.random-pet"
+            ],
+            "provider": "random.foo"
+        },
+        "random-pet": {
+            "//": {
+                "metadata": {
+                    "path": "test/random-pet",
+                    "uniqueId": "random-pet"
+                }
+            },
+            "provider": "random.foo"
+        }
+    }
+}
