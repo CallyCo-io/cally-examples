@@ -1,4 +1,4 @@
 dev:
   services:
-    pets:
-      stack_type: RandomPets
+    example:
+      stack_type: ExampleStack
