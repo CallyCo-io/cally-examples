@@ -37,31 +37,19 @@ pip install -e . --upgrade
 Hello world
 ```
 
-### Using your own entrypoint
-```bash
-(venv) ➜  minimal git:(main) ✗ minimal-idp config print-service --environment dev --service pets
-ENVIRONMENT: dev
-NAME: pets
-PROVIDERS:
-  random:
-    alias: foo
-STACK_TYPE: RandomPets
-```
-
 ### Pets Service Config
 ```bash
-(venv) ➜  minimal git:(main) ✗ cally config print-service --environment dev --service pets
+(venv) ➜  minimal git:(main) ✗ cally config print-service --environment dev --service example
+BACKEND:
+  path: '{name}/{environment}'
 ENVIRONMENT: dev
-NAME: pets
-PROVIDERS:
-  random:
-    alias: foo
-STACK_TYPE: RandomPets
+NAME: example
+STACK_TYPE: ExampleStack
 ```
 
 ### Generating a Terraform Template
 ```bash
-(venv) ➜  minimal git:(main) ✗ cally tf print --environment dev --service pets
+(venv) ➜  minimal git:(main) ✗ cally tf print --environment dev --service example
 ```
 
 Produces this output, which be passed to terrafrom for plan/apply
@@ -70,54 +58,16 @@ Produces this output, which be passed to terrafrom for plan/apply
   "//": {
     "metadata": {
       "backend": "local",
-      "stackName": "pets",
+      "stackName": "example",
       "version": "0.20.5"
     },
     "outputs": {
     }
   },
-  "provider": {
-    "random": [
-      {
-        "alias": "foo"
-      }
-    ]
-  },
-  "resource": {
-    "random_pet": {
-      "another-random-pet": {
-        "//": {
-          "metadata": {
-            "path": "pets/another-random-pet",
-            "uniqueId": "another-random-pet"
-          }
-        },
-        "depends_on": [
-          "random_pet.random-pet"
-        ],
-        "provider": "random.foo"
-      },
-      "random-pet": {
-        "//": {
-          "metadata": {
-            "path": "pets/random-pet",
-            "uniqueId": "random-pet"
-          }
-        },
-        "provider": "random.foo"
-      }
-    }
-  },
   "terraform": {
     "backend": {
       "local": {
-        "path": "state/pets.tfstate"
-      }
-    },
-    "required_providers": {
-      "random": {
-        "source": "hashicorp/random",
-        "version": "3.6.0"
+        "path": "example/dev"
       }
     }
   }

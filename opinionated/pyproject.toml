@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opinionated-idp"
+version = "0.1.0"
+
+dependencies = ["cally"]
+
+requires-python = ">=3.8"
+authors = [
+  {name = "Example Org"},
+]
+description = "Example Cally Extension"
+
+[tool.setuptools.packages.find]
+include=["cally.*"]
+
+[project.scripts]
+minimal-idp = "cally.cli:cally"
+
+[project.optional-dependencies]
+test = [
+  "black",
+  "build",
+  "mypy",
+  "pytest",
+  "pytest-black",
+  "pytest-mypy",
+  "pytest-ruff<0.3",  # 0.3 + 0.3.1 are currently not working
+  "ruff",
+]
+
+[tool.black]
+skip-string-normalization = true
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+addopts = "-p no:cacheprovider --black --mypy --ruff"
+filterwarnings = [
+    "ignore",
+    "default:::cally.*",
+    "default:::tests.*"
+]
+
+[tool.ruff]
+preview = true
+
+[tool.ruff.lint]
+select = [
+    # flake8
+    "A", "ARG", "B", "BLE", "C4", "PIE", "RET", "SIM", "S",
+    "F",  # pyflakes
+    "N",  # pep8-nameing
+    "PL", # pylint
+    "E",  # error
+    "W",  # warning
+    "PTH", # pathlib
+    "RUF", # ruff
+]

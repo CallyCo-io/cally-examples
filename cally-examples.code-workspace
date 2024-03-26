@@ -7,6 +7,10 @@
 			"path": "minimal/",
 			"python.defaultInterpreterPath": "${workspaceFolder:cally-examples}/minimal/venv/bin/python",
 		},
+		{
+			"path": "opinionated/",
+			"python.defaultInterpreterPath": "${workspaceFolder:cally-examples}/opinionated/venv/bin/python",
+		},
 	],
 	"settings": {
 		"python.defaultInterpreterPath": "${workspaceFolder:cally-examples}/venv/bin/python",

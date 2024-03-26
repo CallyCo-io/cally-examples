@@ -1,1 +1,1 @@
-DEFAULTS = {"providers": {'random': {'alias': 'foo'}}}
+DEFAULTS = {'backend': {'path': '{name}/{environment}'}}
