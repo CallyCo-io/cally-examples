@@ -20,6 +20,8 @@
 		"files.watcherExclude": {
 			"**/.pytest_cache": true,
 			"**/.mypy_cache": true,
+			"**/build": true,
+			"**/dist": true,
 			"**/*egg*": true,
 			"**/venv": true
 		},

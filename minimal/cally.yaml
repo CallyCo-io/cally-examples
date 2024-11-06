@@ -2,3 +2,5 @@ dev:
   services:
     example:
       stack_type: ExampleStack
+      stack_vars:
+        foo: bar
